@@ -10,7 +10,7 @@ print("Welcome to the Dice!")
 print("Press Enter to roll, type 'Quit' and press enter to quit")
 command=input("ARE YOU READY TO ROLL??? ")
 
-while(command!="quit" or command!="Quit" or command!="QUIT"):
+while(command.capitalize()!="Quit"):
     die_1 : int = random.randint(1,6)
     die_2 : int = random.randint(1,6)
     total : int = die_1 + die_2
