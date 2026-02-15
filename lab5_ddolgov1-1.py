@@ -1,22 +1,28 @@
 """
 Dice game
 Author: Dmitrii Dolgov
-Roll 2 dice, count the scores and print the funny names of combinations
+Roll 2 dice, count the scores and print the  names of combinations, if applicable
 """
 
-import random
-command:str
+import random   # Random module for dice simulation
+command:str     # Used for continuing/quitting the game
+
+# Welcome messages
 print("Welcome to the Dice!")
 print("Press Enter to roll, type 'Quit' and press enter to quit")
 command=input("ARE YOU READY TO ROLL??? ")
-
+# Game loop. Capitalize() is used as a protection against typos. 
+# Writing anything or just pressing "Enter" continues the game
 while(command.capitalize()!="Quit"):
     die_1 : int = random.randint(1,6)
     die_2 : int = random.randint(1,6)
-    total : int = die_1 + die_2
+    # Total score of the roll. Also used as a "common denominator" for the if-else segment.
+    total : int = die_1 + die_2 
 
     print(f"\nYou rolled {total}!")
     print(f"Your dice are:")
+    # Using "total" as a key element of if-else segment with addition of specific die rolls
+    # when necessary makes the code look better structured, easier to write and read
     if total==12: 
         print(f"{die_1} & {die_2}: Boxcars!")
     elif total==11:
@@ -40,6 +46,8 @@ while(command.capitalize()!="Quit"):
     elif total==2:
         print(f"{die_1} & {die_2}: Snake Eyes!")
     else:
-        print(f"{die_1} & {die_2}!")
+        # If no name is applicable to combination, just write the result
+        print(f"{die_1} & {die_2}!")    
+    # Continue the loop or quit the game
     command=input("\nAnother one? ")
 
